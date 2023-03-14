@@ -42,6 +42,7 @@ void dijalgo(){
     for(int i = 0 ; i < V-1 ; i++){
         int nearest = getnearest() ;
         visited[nearest] = true ;
+        //once we visit the nearest node we mark it as visited
 
         for(int adjacent = 0 ; adjacent < V ; adjacent++){
             if(cost[nearest][adjacent] != INF and dist[adjacent]>dist[nearest]+cost[nearest][adjacent]){
@@ -56,10 +57,10 @@ void dijalgo(){
 
 void display(){
     cout<<"Node:\t\t\tCost  :\t\t\tPath"    ;
-
+    //These act as the titles for each column
     for(int i = 0; i < V; i++){
         cout<<i<<"\t\t\t"<<dist[i]<<"\t\t\t"<<" " ;
-
+    //For node, it counts up from 0 adding one, stopping when i=V, the second column uses the shortests distance from the source node as the value for the cost
         cout << i <<" ";
         int parnode = parent[i];
         
@@ -73,13 +74,16 @@ void display(){
 
 int main(void){
     cout << "Enter the number of vertices : " ;
+    //Figured out C++ is zero indexing 
     cin >> V ;
+    cout<<"Enter the cost matrix: \n";
+    //this is the adjacency matrix (learned in discrete math)
     for(int i = 0 ; i < V ; i++){
         for(int j = 0 ; j < V ; j++){
             cin >> cost[i][j] ;
         }
     }
-    cout<<"source node : " ;
+    cout<<"Enter source node : " ;
     cin >> src ;
     basic() ;
     dijalgo() ;
