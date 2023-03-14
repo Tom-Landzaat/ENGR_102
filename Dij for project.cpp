@@ -2,6 +2,7 @@
 using namespace std ;
 
 #define INF 1000
+//defining infinity so it doesn't mess with calculations
 
 //Dijkstra
 
@@ -18,6 +19,7 @@ void basic(){
     for(int i = 0;i <V ; i++){
     dist[i] = INF ;
     parent[i] = i;
+    //parent of a vertex is itself
     }
     //distance from src to itself is 0
     dist[src] = 0 ;
@@ -85,6 +87,7 @@ int main(void){
     }
     cout<<"Enter source node : " ;
     cin >> src ;
+    //algorithm calculates distance from source node to other nodes
     basic() ;
     dijalgo() ;
     display();
