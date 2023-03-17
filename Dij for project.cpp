@@ -58,7 +58,7 @@ void dijalgo(){
 }
 
 void display(){
-    cout<<"Node:\t\t\tCost  :\t\t\tPath"    ;
+    cout<<"Node:\t\t\tCost  :\t\t\tPath\n"    ;
     //These act as the titles for each column
     for(int i = 0; i < V; i++){
         cout<<i<<"\t\t\t"<<dist[i]<<"\t\t\t"<<" " ;
