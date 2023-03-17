@@ -13,6 +13,7 @@ int dist[100] ;
 bool visited[100] = {0} ;
 //keeps track of visited with T/F, all default as unvisted
 int parent[100] ;
+//parent of a node is itself
 
 
 void basic(){
@@ -37,6 +38,7 @@ int getnearest() {
         }
     }
     return minvertex ;
+    //if the conditions are met, return the minvertex
 }
 
 void dijalgo(){
@@ -58,8 +60,8 @@ void dijalgo(){
 }
 
 void display(){
-    cout<<"Node:\t\t\tCost  :\t\t\tPath\n"    ;
-    //These act as the titles for each column
+    cout<<"Node:\t\t\tCost:  \t\t\tPath:\n"    ;
+    //These act as the titles for each column, the slash t is a horizontal tab, spacing out the columns
     for(int i = 0; i < V; i++){
         cout<<i<<"\t\t\t"<<dist[i]<<"\t\t\t"<<" " ;
     //For node, it counts up from 0 adding one, stopping when i=V, the second column uses the shortests distance from the source node as the value for the cost
@@ -71,11 +73,12 @@ void display(){
             parnode = parent[parnode];
         }
         cout<<endl ;
+        //endl inserts a new line and flushes the output buffer
     }
 }
 
 int main(void){
-    cout << "Enter the number of vertices : " ;
+    cout << "Enter the number of vertices: " ;
     //Figured out C++ is zero indexing 
     cin >> V ;
     cout<<"Enter the cost matrix: \n";
@@ -91,4 +94,5 @@ int main(void){
     basic() ;
     dijalgo() ;
     display();
+    //finally calling all of the functions
 }
